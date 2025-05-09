@@ -1,0 +1,58 @@
+{
+    "zig.path": "zig",
+    "editor.fontSize": 16,
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "off",
+    "telemetry.telemetryLevel": "off",
+    "window.titleBarStyle": "custom",
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false,
+    "extensions.ignoreRecommendations": true,
+    "mesonbuild.downloadLanguageServer": true,
+    "zig-language-extras.debugType": "lldb",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "glsl-analyzer.path": "/home/vali/.config/Code/User/globalStorage/nolanderc.glsl-analyzer/glsl_analyzer_install/bin/glsl_analyzer",
+    "git.openRepositoryInParentFolders": "never",
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "code-runner.saveFileBeforeRun": true,
+    "idf.espIdfPath": "/home/vali/esp/v5.4/esp-idf",
+    "idf.pythonBinPath": "/home/vali/.espressif/python_env/idf5.3_py3.12_env/bin/python",
+    "idf.toolsPath": "/home/vali/.espressif",
+    "idf.customExtraPaths": "/home/vali/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin:/home/vali/.espressif/tools/riscv32-esp-elf-gdb/14.2_20240403/riscv32-esp-elf-gdb/bin:/home/vali/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin:/home/vali/.espressif/tools/riscv32-esp-elf/esp-13.2.0_20240530/riscv32-esp-elf/bin:/home/vali/.espressif/tools/esp32ulp-elf/2.38_20240113/esp32ulp-elf/bin:/home/vali/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/bin:/home/vali/.espressif/tools/esp-rom-elfs/20240305",
+    "idf.customExtraVars": {
+        "OPENOCD_SCRIPTS": "/home/vali/.espressif/tools/openocd-esp32/v0.12.0-esp32-20240318/openocd-esp32/share/openocd/scripts",
+        "ESP_ROM_ELF_DIR": "/home/vali/.espressif/tools/esp-rom-elfs/20240305/"
+    },
+    "idf.gitPath": "git",
+    "cmake.showOptionsMovedNotification": false,
+    "idf.pythonInstallPath": "/usr/bin/python",
+    "idf.hasWalkthroughBeenShown": true,
+    "zig.zls.enabled": "on",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "clangd.detectExtensionConflicts": false,
+    "arduino.useArduinoCli": true,
+    "zig.zls.path": "zls",
+    "python.createEnvironment.trigger": "off",
+    "lldb.suppressUpdateNotifications": true,
+    "zig.zls.debugLog": true,
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 120,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "clangd.arguments": [
+        "-header-insertion=never"
+    ],
+}
