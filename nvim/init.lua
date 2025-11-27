@@ -23,6 +23,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', '<leader>q', function() vim.lsp.buf.hover() end)
 vim.keymap.set('n', '<leader>gd', function() vim.lsp.buf.definition() end)
 vim.keymap.set('n', '<leader>a', function() vim.lsp.buf.code_action() end)
+vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end)
+vim.keymap.set('n', '<leader>d', function() vim.diagnostic.open_float() end)
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -77,6 +79,8 @@ require("lazy").setup {
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
     "hrsh7th/vim-vsnip-integ",
+    "github/copilot.vim",
+    "stevearc/conform.nvim",
 }
 
 -- Telescope
@@ -85,6 +89,7 @@ vim.keymap.set('n', '<leader>f', builtin.find_files, {})
 vim.keymap.set('n', '<leader>gf', builtin.live_grep, {});
 
 -- Color scheme
+vim.g.moonflyTransparent = true
 vim.cmd.colorscheme("moonfly")
 
 -- Illuminate
@@ -102,18 +107,21 @@ require('illuminate').configure {
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+require("conform").setup({
+    formatters_by_ft = {
+        python = { "black" },
+        rust = { "rustfmt" },
+        zig = { "zigfmt" },
+        cpp = { "clang-format" },
+        c = { "clang-format" },
+    },
+})
 
 -- Format on save
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("lsp", { clear = true }),
+vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function(args)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = args.buf,
-            callback = function()
-                vim.lsp.buf.format { async = false, id = args.data.client_id }
-            end,
-        })
-    end
+        require("conform").format({ bufnr = args.buf })
+    end,
 })
 
 -- Completion
@@ -137,6 +145,12 @@ cmp.setup {
     }
 }
 
+vim.keymap.set('i', '<S-Tab>', 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false
+})
+vim.g.copilot_no_tab_map = true
+
 local caps = require('cmp_nvim_lsp').default_capabilities()
 
 local lsp = require 'lspconfig'
@@ -156,6 +170,9 @@ lsp.zls.setup { capabilities = caps }
 lsp.clangd.setup { capabilities = caps }
 lsp.pyright.setup { capabilities = caps }
 lsp.rust_analyzer.setup { capabilities = caps }
+lsp.ts_ls.setup { capabilities = caps }
+lsp.eslint.setup { capabilities = caps }
+lsp.tailwindcss.setup { capabilities = caps }
 lsp.lua_ls.setup {
     on_init = function(client)
         client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
