@@ -70,8 +70,11 @@ require("lazy").setup {
     "stevearc/dressing.nvim",
     "bluz71/vim-moonfly-colors",
     "williamboman/mason.nvim",
+<<<<<<< HEAD
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+=======
+>>>>>>> 53159c1 (update nvim lspconfig)
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
@@ -105,7 +108,10 @@ require('illuminate').configure {
 }
 
 require("mason").setup()
+<<<<<<< HEAD
 require("mason-lspconfig").setup()
+=======
+>>>>>>> 53159c1 (update nvim lspconfig)
 
 require("conform").setup({
     formatters_by_ft = {
@@ -153,6 +159,7 @@ vim.g.copilot_no_tab_map = true
 
 local caps = require('cmp_nvim_lsp').default_capabilities()
 
+<<<<<<< HEAD
 local lsp = require 'lspconfig'
 lsp.veridian.setup {
     root_dir = function() return vim.loop.cwd() end,
@@ -188,3 +195,19 @@ lsp.lua_ls.setup {
     },
     capabilities = caps,
 }
+=======
+local lsp = vim.lsp.enable({
+    "veridian",
+    "verible",
+    "mesonlsp",
+    "zls",
+    "clangd",
+    "pyright",
+    "rust_analyzer",
+    "ts_ls",
+    "eslint",
+    "tailwindcss",
+    "luals",
+})
+
+>>>>>>> 53159c1 (update nvim lspconfig)
