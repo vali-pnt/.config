@@ -1,0 +1,38 @@
+* {
+    font-family: 'FiraCode Nerd Font', FontAwesome;
+    font-size: 16px;
+}
+
+window#waybar {
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+#cpu {
+    color: limegreen;
+}
+
+#memory {
+    color: crimson;
+}
+
+#network {
+    color: turquoise;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 10px;
+}
